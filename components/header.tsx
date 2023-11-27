@@ -8,6 +8,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Box, Flex, Stack, Text, Spacer, Icon, useTheme } from '@chakra-ui/react'
 
+const WAVE_SYMBOL = '\u223F'
+
 const NAVLINKS = [
     {
         name: 'Projects',
@@ -42,8 +44,8 @@ export function NavLogo(props) {
   return (
     <Box as={Link} href='/' display='block' {...props}>
       <Stack spacing={2} direction='row'>
-        <Image src='/wave.png' height='30' width='40' alt='logo' style={ style } />
-        <Text fontSize='2xl'>rofinn</Text>
+        {/* <Image src='/wave.png' height='30' width='40' alt='logo' style={ style } /> */}
+        <Text fontSize='3xl'><b><i>{WAVE_SYMBOL}</i> rofinn</b></Text>
       </Stack>
     </Box>
   )
@@ -51,7 +53,7 @@ export function NavLogo(props) {
 
 export function NavItem(props: { name: string, href: string }) {
   return (
-    <Text as={Link} href={props.href} display='block' fontSize='xl'>
+    <Text as={Link} href={props.href} display='block' fontSize='2xl'>
       { props.name }
     </Text>
   )
@@ -59,7 +61,7 @@ export function NavItem(props: { name: string, href: string }) {
 
 export function NavIcon(props: { icon: IconType, href: string}) {
     return (
-        <Box as={Link} href={ props.href } display='block' key={ props.href } fontSize='xl' >
+        <Box as={Link} href={ props.href } display='block' key={ props.href } fontSize='2xl' >
             <Icon as={ props.icon } />
         </Box>
     )
