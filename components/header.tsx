@@ -1,7 +1,7 @@
 // We need to make this a client component to pass our react icons around
 "use client";
 
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { IconType } from "react-icons";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
@@ -44,13 +44,13 @@ const ICONLINKS = [
   },
 ];
 
-export function NavLogo(props) {
+export function NavLogo() {
   const style = {
     borderRadius: "50%",
   };
 
   return (
-    <Box as={Link} href="/" display="block" {...props}>
+    <Box as={Link} href="/" display="block" pr={8}>
       <Stack spacing={2} direction="row">
         {/* <Image src='/wave.png' height='30' width='40' alt='logo' style={ style } /> */}
         <Text fontSize="3xl">
@@ -85,14 +85,17 @@ export function NavIcon(props: { icon: IconType; href: string }) {
   );
 }
 
-export function NavBar({ children }) {
+type NavBarProps = {
+
+}
+export function NavBar(props: PropsWithChildren<{}>) {
   return (
     <Box
       display={{ base: "block", md: "block" }}
       flexBasis={{ base: "100%", md: "auto" }}
     >
       <Stack spacing={8} direction={["column", "row", "row", "row"]}>
-        {children}
+        {props.children}
       </Stack>
     </Box>
   );
@@ -115,7 +118,7 @@ export default function Header() {
         boxShadow="xs"
         bg={theme.__cssMap["colors.chakra-body-bg"].value}
       >
-        <NavLogo pr={8} />
+        <NavLogo />
         <NavBar>
           {NAVLINKS.map(({ name, href }) => (
             <NavItem key={href} name={name} href={href} />
