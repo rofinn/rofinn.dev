@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier \"{app,components}/**/*.tsx\" --check --config ./.prettierrc.json",
+    "format:fix": "prettier \"{app,components}/**/*.tsx\" --write --list-different --config ./.prettierrc.json"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
@@ -25,6 +27,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.1.0",
     "typescript": "^5"
   }
 }
