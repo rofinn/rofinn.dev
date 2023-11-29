@@ -1,25 +1,27 @@
-import type { Metadata } from 'next';
-import { Providers } from './providers';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import type { Metadata } from "next";
+import { Providers } from "./providers";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
-  title: 'Rory Finnegan | Software Developer',
-  description: 'Software Developer with experience building data pipelines and ML platforms',
+  metadataBase: new URL("http://localhost:3000"),
+  title: "Rory Finnegan | Software Developer",
+  description:
+    "Software Developer with experience building data pipelines and ML platforms",
   openGraph: {
-    title: 'Rory Finnegan',
-    description: 'Software Developer with experience building data pipelines and ML platforms',
-    images: 'url/wave.png',
-    locale: 'en-CA',
-    type: 'website',
-  }
-}
+    title: "Rory Finnegan",
+    description:
+      "Software Developer with experience building data pipelines and ML platforms",
+    images: "url/wave.png",
+    locale: "en-CA",
+    type: "website",
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -31,5 +33,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  )
+  );
 }
