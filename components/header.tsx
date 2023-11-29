@@ -85,9 +85,7 @@ export function NavIcon(props: { icon: IconType; href: string }) {
   );
 }
 
-type NavBarProps = {
-
-}
+type NavBarProps = {};
 export function NavBar(props: PropsWithChildren<{}>) {
   return (
     <Box
