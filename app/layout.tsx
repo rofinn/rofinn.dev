@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { ColorModeScript } from "@chakra-ui/react";
 
 import { Providers } from "./providers";
+import theme from "../theme";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
@@ -29,6 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Header />
           {children}
           <Footer />

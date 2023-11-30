@@ -3,7 +3,13 @@
 
 import React, { PropsWithChildren } from "react";
 import { IconType } from "react-icons";
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaMoon,
+  FaSun,
+} from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -14,6 +20,7 @@ import {
   Spacer,
   Icon,
   useTheme,
+  useColorMode,
 } from "@chakra-ui/react";
 
 const WAVE_SYMBOL = "\u223F";
@@ -85,6 +92,15 @@ export function NavIcon(props: { icon: IconType; href: string }) {
   );
 }
 
+export function NavColorMode() {
+  const { colorMode, toggleColorMode } = useColorMode();
+  return (
+    <Box onClick={toggleColorMode} display="block" fontSize="2xl">
+      {colorMode === "light" ? <FaMoon /> : <FaSun />}
+    </Box>
+  );
+}
+
 export function NavBar(props: PropsWithChildren<{}>) {
   return (
     <Box
@@ -126,7 +142,7 @@ export default function Header() {
           {ICONLINKS.map(({ icon, href }) => (
             <NavIcon key={href} icon={icon} href={href} />
           ))}
-          ;
+          <NavColorMode />
         </NavBar>
       </Flex>
     </header>

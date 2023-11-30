@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier \"{app,components}/**/*.tsx\" --check --config ./.prettierrc.json",
-    "format:fix": "prettier \"{app,components}/**/*.tsx\" --write --list-different --config ./.prettierrc.json"
+    "format": "prettier \"{app,components,theme}/**/*.tsx\" --check --config ./.prettierrc.json",
+    "format:fix": "prettier \"{app,components,theme}/**/*.tsx\" --write --list-different --config ./.prettierrc.json"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
