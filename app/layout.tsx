@@ -28,8 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    // Chakra adds style={{colorScheme: "light"}} data-theme="light" attributes causing
+    // hydration warnings about the client side attributes not matching what was sent from the server.
+    // I don't think there's a better work around as we won't know the color mode preference till it gets client-side.
+    // Similarly class="chakra-ui-light" (or dark) is being added to the body.
+    <html lang="en" suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         <Providers>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Header />

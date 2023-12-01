@@ -18,6 +18,7 @@ export default function Home() {
             width="200"
             alt="profile"
             style={profileStyle}
+            priority={true}
           />
           <Text fontSize={["sm", "md", "lg"]}>
             I'm a{" "}
