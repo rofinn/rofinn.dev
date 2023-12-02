@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Heading, Text, VStack } from "@chakra-ui/react";
 
+import SkillCloud from "../components/skillcloud";
+
 export default function Home() {
   const profileStyle = {
     borderRadius: "50%",
@@ -31,9 +33,7 @@ export default function Home() {
             forecasting and classification tasks.
           </Text>
         </VStack>
-        <VStack w={[300, 400, 500]} spacing={4}>
-          {/* TODO: Create a tech stack icon cloud */}
-        </VStack>
+        <SkillCloud />
         <VStack w={[300, 400, 500]} spacing={4}>
           {/* TODO: Create a tech stack icon cloud */}
         </VStack>
