@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import { ColorModeScript } from "@chakra-ui/react";
 
-import { Providers } from "./providers";
-import theme from "../theme";
 import Header from "../components/header";
 import Footer from "../components/footer";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
@@ -20,6 +22,10 @@ export const metadata: Metadata = {
     locale: "en-CA",
     type: "website",
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -28,18 +34,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // Chakra adds style={{colorScheme: "light"}} data-theme="light" attributes causing
-    // hydration warnings about the client side attributes not matching what was sent from the server.
-    // I don't think there's a better work around as we won't know the color mode preference till it gets client-side.
-    // Similarly class="chakra-ui-light" (or dark) is being added to the body.
-    <html lang="en" suppressHydrationWarning={true}>
-      <body suppressHydrationWarning={true}>
-        <Providers>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
