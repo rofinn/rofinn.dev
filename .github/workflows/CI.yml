@@ -45,7 +45,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm install -g prettier
-    - run: prettier {app,components,theme}/**/*.tsx --check --config ./.prettierrc.json
+    - run: prettier {app,components}/**/*.tsx --check --config ./.prettierrc.json
 #   accessibility:
 #     name: "Accessibility testing with Node v18"
 #     runs-on: ubuntu-latest

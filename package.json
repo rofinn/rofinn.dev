@@ -6,30 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint",
-    "format": "prettier \"{app,components,theme}/**/*.tsx\" --check --config ./.prettierrc.json",
-    "format:fix": "prettier \"{app,components,theme}/**/*.tsx\" --write --list-different --config ./.prettierrc.json"
+    "format": "prettier \"{app,components}/**/*.tsx\" --check --config ./.prettierrc.json",
+    "format:fix": "prettier \"{app,components}/**/*.tsx\" --write --list-different --config ./.prettierrc.json"
   },
   "dependencies": {
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@vercel/analytics": "^1.1.1",
-    "framer-motion": "^10.16.5",
     "next": "14.0.3",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.1.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "^9.0.0",
+    "postcss": "^8.4.38",
     "prettier": "^3.1.0",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5"
   }
 }

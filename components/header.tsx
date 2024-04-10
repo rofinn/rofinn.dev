@@ -1,27 +1,12 @@
 // We need to make this a client component to pass our react icons around
 "use client";
 
-import React, { PropsWithChildren } from "react";
-import { IconType } from "react-icons";
-import {
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaMoon,
-  FaSun,
-} from "react-icons/fa";
+import React from "react";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import Image from "next/image";
-import {
-  Box,
-  Flex,
-  Stack,
-  Text,
-  Spacer,
-  Icon,
-  useTheme,
-  useColorMode,
-} from "@chakra-ui/react";
+
+const ThemeToggle = dynamic(() => import("./theme-toggle"));
 
 const WAVE_SYMBOL = "\u223F";
 
@@ -38,113 +23,58 @@ const NAVLINKS = [
 
 const ICONLINKS = [
   {
-    icon: FaEnvelope,
+    Icon: FaEnvelope,
     href: "mailto: hello@example.com",
   },
   {
-    icon: FaGithub,
+    Icon: FaGithub,
     href: "https://github.com",
   },
   {
-    icon: FaLinkedin,
+    Icon: FaLinkedin,
     href: "https://www.linkedin.com",
   },
 ];
 
-export function NavLogo() {
-  const style = {
-    borderRadius: "50%",
-  };
-
+export function NavBar() {
   return (
-    <Box as={Link} href="/" display="block" pr={8}>
-      <Stack spacing={2} direction="row">
-        {/* <Image src='/wave.png' height='30' width='40' alt='logo' style={ style } /> */}
-        <Text fontSize="3xl">
-          <b>
+    <nav className="flex justify-center items-center md:justify-between h-xl m-auto text-xl text-loosen p-6">
+      <ul className="flex gap-6">
+        {/* Logo */}
+        <li>
+          <Link className="text-xl font-bold" href="/">
             <i>{WAVE_SYMBOL}</i> rofinn
-          </b>
-        </Text>
-      </Stack>
-    </Box>
-  );
-}
-
-export function NavItem(props: { name: string; href: string }) {
-  return (
-    <Text as={Link} href={props.href} display="block" fontSize="2xl">
-      {props.name}
-    </Text>
-  );
-}
-
-export function NavIcon(props: { icon: IconType; href: string }) {
-  return (
-    <Box
-      as={Link}
-      href={props.href}
-      display="block"
-      key={props.href}
-      fontSize="2xl"
-    >
-      <Icon as={props.icon} />
-    </Box>
-  );
-}
-
-export function NavColorMode() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <Box onClick={toggleColorMode} display="block" fontSize="2xl">
-      {colorMode === "light" ? <FaMoon /> : <FaSun />}
-    </Box>
-  );
-}
-
-export function NavBar(props: PropsWithChildren<{}>) {
-  return (
-    <Box
-      display={{ base: "block", md: "block" }}
-      flexBasis={{ base: "100%", md: "auto" }}
-    >
-      <Stack spacing={8} direction={["column", "row", "row", "row"]}>
-        {props.children}
-      </Stack>
-    </Box>
+          </Link>
+        </li>
+        {/* Nav Links */}
+        {NAVLINKS.map(({ name, href }) => (
+          <li key={href}>
+            <Link href={href} className="text-lg">
+              {name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      {/* Desktop Accounts Navigation */}
+      <ul className="hidden md:flex gap-4">
+        {ICONLINKS.map(({ Icon, href }) => (
+          <li key={href}>
+            <Link href={href}>
+              <Icon size="1.5rem" />
+            </Link>
+          </li>
+        ))}
+        <ThemeToggle />
+      </ul>
+    </nav>
   );
 }
 
 export default function Header() {
-  const theme = useTheme();
+  // const theme = useTheme();
   return (
     <header>
-      <Flex
-        as="nav"
-        position="fixed"
-        align="center"
-        justify={["center", "space-between", "flex-end", "flex-end"]}
-        wrap="wrap"
-        w="100%"
-        p="1em"
-        zIndex={1}
-        opacity={1}
-        boxShadow="xs"
-        bg={theme.__cssMap["colors.chakra-body-bg"].value}
-      >
-        <NavLogo />
-        <NavBar>
-          {NAVLINKS.map(({ name, href }) => (
-            <NavItem key={href} name={name} href={href} />
-          ))}
-        </NavBar>
-        <Spacer />
-        <NavBar>
-          {ICONLINKS.map(({ icon, href }) => (
-            <NavIcon key={href} icon={icon} href={href} />
-          ))}
-          <NavColorMode />
-        </NavBar>
-      </Flex>
+      <NavBar />
     </header>
   );
 }
