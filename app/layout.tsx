@@ -1,49 +1,38 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
+import { type Metadata } from "next";
 
-import Header from "../components/header";
-import Footer from "../components/footer";
+import { Providers } from "@/app/providers";
+import { Layout } from "@/components/Layout";
+import { Waves } from "@/components/Waves";
 
-const inter = Inter({ subsets: ["latin"] });
+import "@/styles/tailwind.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
-  title: "Rory Finnegan | Software Developer",
-  description:
-    "Software Developer with experience building data pipelines and ML platforms",
-  openGraph: {
-    title: "Rory Finnegan",
-    description:
-      "Software Developer with experience building data pipelines and ML platforms",
-    images: "url/wave.png",
-    locale: "en-CA",
-    type: "website",
+  title: {
+    template: "%s - Rory Finnegan",
+    default: "Rory Finnegan - Software Developer",
   },
-  icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+  description:
+    "I'm a software spelunker, retired researcher and outdoor enthusiast.",
+  alternates: {
+    types: {
+      "application/rss+xml": `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
+    },
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
-            <Header />
-            {children}
-            <Footer />
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <body className="flex h-full bg-zinc-100 dark:bg-zinc-900">
+        <Providers>
+          <div className="flex w-full">
+            <Layout>{children}</Layout>
           </div>
-        </ThemeProvider>
-        <Analytics />
+        </Providers>
       </body>
     </html>
   );
