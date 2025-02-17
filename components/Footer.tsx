@@ -10,10 +10,7 @@ function NavLink({
   children: React.ReactNode;
 }) {
   return (
-    <Link
-      href={href}
-      className="transition hover:text-sky-500 dark:hover:text-sky-400"
-    >
+    <Link href={href} className="transition">
       {children}
     </Link>
   );
@@ -26,13 +23,13 @@ export function Footer() {
         <div className="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
           <ContainerInner>
             {/* <div className="flex flex-col justify-between gap-6 sm:flex-row"> */}
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium">
               {/* <NavLink href="/about">About</NavLink> */}
               <NavLink href="/content">Content</NavLink>
               <NavLink href="/projects">Projects</NavLink>
               <NavLink href="/tools">Tools</NavLink>
             </div>
-            {/* <p className="text-sm text-zinc-400 dark:text-zinc-500">
+            {/* <p className="text-sm">
                 &copy; {new Date().getFullYear()} Rory Finnegan. All rights
                 reserved.
               </p> */}

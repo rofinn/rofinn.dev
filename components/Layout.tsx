@@ -1,16 +1,20 @@
+import Link from "next/link";
 import { Waves } from "@/components/Waves";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { Nav } from "@/components/Nav";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="fixed w-full lg:px-8">
-        <Waves />
-      </div>
-      <div className="relative w-full flex-col">
-        <Header />
-        <main className="flex-auto">{children}</main>
+      <div className="relative w-full flex-col md:flex-row">
+        {/* <Header /> */}
+        <Nav />
+        <main className="mx-8 flex-auto">{children}</main>
+        <div className="fixed top-0 right-0">
+          <ThemeToggle />
+        </div>
         {/* <Footer /> */}
       </div>
     </>

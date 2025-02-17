@@ -2,10 +2,11 @@ import Image, { type ImageProps } from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
-import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 import { Divider } from "@/components/Divider";
+import { Waves } from "@/components/Waves";
+
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -25,19 +26,6 @@ import rag from "@/images/photos/RAG.svg";
 import { type ArticleWithSlug, getAllArticles } from "@/lib/content";
 import { formatDate } from "@/lib/formatDate";
 
-function ArrowDownIcon(props: React.ComponentPropsWithoutRef<"svg">) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <Card as="article">
@@ -48,19 +36,6 @@ function Article({ article }: { article: ArticleWithSlug }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
-  );
-}
-
-function SocialLink({
-  icon: Icon,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
-  icon: React.ComponentType<{ className?: string }>;
-}) {
-  return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
   );
 }
 
@@ -83,7 +58,7 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="invisible md:visible relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+      <div className="invisible md:visible relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 dark:border dark:ring-0">
         <Image
           src={role.logo}
           alt=""
@@ -93,16 +68,12 @@ function Role({ role }: { role: Role }) {
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
-        <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
-        </dd>
+        <dd className="w-full flex-none text-sm font-medium">{role.company}</dd>
         <dt className="sr-only">Role</dt>
-        <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-          {role.title}
-        </dd>
+        <dd className="text-xs">{role.title}</dd>
         <dt className="sr-only">Date</dt>
         <dd
-          className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+          className="ml-auto text-xs"
           aria-label={`${startLabel} until ${endLabel}`}
         >
           <time dateTime={startDate}>{startLabel}</time>{" "}
@@ -172,13 +143,13 @@ function Experience() {
       </ol>
       <div className="flex">
         <div className="w-1/2 md:w-4/5" />
-        <Button
+        {/* <Button
           href="#"
           variant="primary"
           className="group mt-6 w-1/2 md:w-1/5"
         >
           More info
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
@@ -188,48 +159,14 @@ export default async function Home() {
   let articles = (await getAllArticles()).slice(0, 4);
 
   return (
-    // <div className="lg:flex lg:justify-between mt-16 lg:gap-4">
-    <div className="lg:flex mx-auto w-full max-w-7xl">
-      <Container className="lg:fixed top-0 left-20 lg:w-1/3 mt-12 md:mt-28 gap-y-6 lg:gap-y-24">
-        <h1 className="text-3xl font-bold text-zinc-800 sm:text-4xl dark:text-zinc-100 lg:text-end">
-          Rory Finnegan
-        </h1>
-        <h2 className="text-sm mt-2 italic sm:text-md sm:hidden font-bold text-zinc-600 dark:text-zinc-400 lg:text-end">
+    <div className="home">
+      <Waves />
+      <Container className="flex flex-col w-1/2 h-screen items-center justify-center flex-grow m-auto">
+        <h1 className="font-bold text-2xl lg:text-4xl">Rory Finnegan</h1>
+        <h2 className="text-lavender text-lg lg:text-xl">
           Software spelunker, ex-researcher and outdoor enthusiast
         </h2>
-        <ul className="text-sm mt-2 italic sm:text-md max-sm:hidden font-bold text-zinc-600 dark:text-zinc-400 lg:text-end">
-          <li>Software spelunker</li>
-          <li>ex-researcher and</li>
-          <li>outdoor enthusiast</li>
-        </ul>
-        <div className="flex gap-4 mx-4 lg:justify-end">
-          <SocialLink
-            href="https://linkedin.com/in/roryfinnegan"
-            icon={LinkedInIcon}
-            className="mt-4"
-          >
-            Follow on LinkedIn
-          </SocialLink>
-          <SocialLink
-            href="https://github.com/rofinn"
-            icon={GitHubIcon}
-            className="mt-4"
-          >
-            Follow on GitHub
-          </SocialLink>
-          <SocialLink
-            href="https://bsky.app/profile/rofinn.bsky.social"
-            icon={BlueSkyIcon}
-            className="mt-4"
-          >
-            Follow on BlueSky
-          </SocialLink>
-        </div>
-      </Container>
-      <Container className="lg:w-1/3 mt-12 md:mt-28 gap-y-6 lg:gap-y-24" />
-      {/* <Photos /> */}
-      <Container className="lg:w-2/3 mt-12 px-0">
-        <p className="my-6 text-base text-zinc-600 dark:text-zinc-400">
+        <p className="my-12">
           I'm a software developer and neuroscientist who enjoys working on
           complex interdisciplinary problems. My academic and vocational
           experience covers system administration, database management, software
@@ -238,12 +175,6 @@ export default async function Home() {
           currently work at Denvr Dataworks, helping customers architect ML
           applications for Denvr's cloud platform.
         </p>
-        <Divider title="Content" />
-        {articles.map((article) => (
-          <Article key={article.slug} article={article} />
-        ))}
-        <Divider title="Experience" />
-        <Experience />
       </Container>
     </div>
   );

@@ -1,20 +1,54 @@
 import { type Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Card } from "@/components/Card";
 import { SimpleLayout } from "@/components/SimpleLayout";
+import { Waves } from "@/components/Waves";
 import logoAnimaginary from "@/images/logos/animaginary.svg";
 import logoCosmos from "@/images/logos/cosmos.svg";
 import logoHelioStream from "@/images/logos/helio-stream.svg";
 import logoOpenShuttle from "@/images/logos/open-shuttle.svg";
 import logoPlanetaria from "@/images/logos/planetaria.svg";
 
+import {
+  SiGnubash,
+  SiJinja,
+  SiJulia,
+  SiMarkdown,
+  SiPython,
+  SiTypescript,
+  SiYaml,
+} from "react-icons/si";
+
+const iconSize = "16";
+const icons: { [key: string]: JSX.Element } = {
+  Bash: <SiGnubash key="Bash" size={iconSize} />,
+  Jinja: <SiJinja key="Jinja" size={iconSize} />,
+  Julia: <SiJulia key="Julia" size={iconSize} />,
+  Markdown: <SiMarkdown key="Markdown" size={iconSize} />,
+  Python: <SiPython key="Python" size={iconSize} />,
+  Typescript: <SiTypescript key="Typescript" size={iconSize} />,
+  YAML: <SiYaml key="YAML" size={iconSize} />,
+};
+
 const projects = [
+  {
+    name: "Boltzmann.jl",
+    description: "Restricted Boltzmann Machines in Julia",
+    link: {
+      href: "https://github.com/rofinn/Boltzmann.jl",
+      label: "Boltzmann.jl",
+    },
+    owner: "Andrei Zhabinski ",
+    contribution: "Contributor",
+    languages: ["Julia"],
+  },
   {
     name: "denvrpy",
     description: "A Python SDK for interacting with Denvr Cloud",
     link: { href: "https://github.com/denvrdata/denvrpy", label: "denvrpy" },
-    owner: "Denvr Dataworks",
+    owner: "Denvr",
     contribution: "Author",
     languages: ["Python", "Jinja"],
   },
@@ -25,9 +59,32 @@ const projects = [
       href: "https://github.com/denvrdata/denvrdemos",
       label: "denvrdemos",
     },
-    owner: "Denvr Dataworks",
+    owner: "Denvr",
     contribution: "Author",
     languages: ["Markdown", "Bash", "YAML"],
+  },
+  {
+    name: "FilePathsBase.jl",
+    description:
+      "A type based approach to working with filesystem paths in Julia",
+    link: {
+      href: "https://github.com/rofinn/FilePathsBase.jl",
+      label: "FilePathsBase.jl",
+    },
+    owner: "Rory Finnegan",
+    contribution: "Author",
+    languages: ["Julia"],
+  },
+  {
+    name: "FilePaths.jl",
+    description: "Extensions for working with filesystem paths in Julia",
+    link: {
+      href: "https://github.com/rofinn/FilePaths.jl",
+      label: "FilePaths.jl",
+    },
+    owner: "Rory Finnegan",
+    contribution: "Author",
+    languages: ["Julia"],
   },
   {
     name: "Impute.jl",
@@ -36,7 +93,30 @@ const projects = [
       href: "https://github.com/invenia/Impute.jl",
       label: "Impute.jl",
     },
-    owner: "Invenia Technical Computing",
+    owner: "Invenia",
+    contribution: "Author",
+    languages: ["Julia"],
+  },
+  {
+    name: "Intervals.jl",
+    description: "Non-iterable ranges in julia",
+    link: {
+      href: "https://github.com/invenia/Intervals.jl",
+      label: "Impute.jl",
+    },
+    owner: "Invenia",
+    contribution: "Contributor",
+    languages: ["Julia"],
+  },
+  {
+    name: "JLSO.jl",
+    description:
+      "Julia Serialized Object (JLSO) file format for storing checkpoint data. ",
+    link: {
+      href: "https://github.com/invenia/JLSO.jl",
+      label: "JLSO.jl",
+    },
+    owner: "Invenia",
     contribution: "Author",
     languages: ["Julia"],
   },
@@ -47,20 +127,76 @@ const projects = [
       href: "https://github.com/invenia/Memento.jl",
       label: "Memento.jl",
     },
-    owner: "Invenia Technical Computing",
+    owner: "Invenia",
     contribution: "Author",
     languages: ["Julia"],
   },
   {
-    name: "FilePaths.jl & FilePathsBase.jl",
-    description:
-      "A type based approach to working with filesystem paths in Julia",
+    name: "Playground.jl",
+    description: "A julialang environment builder (like python's virtualenv)",
     link: {
-      href: "https://github.com/rofinn/FilePathsBase.jl",
-      label: "FilePaths.jl",
+      href: "https://github.com/rofinn/Playground.jl",
+      label: "Playground.jl",
     },
     owner: "Rory Finnegan",
     contribution: "Author",
+    languages: ["Julia"],
+  },
+  {
+    name: "rofinn.dev",
+    description: "My personal website",
+    link: {
+      href: "https://github.com/rofinn/rofinn.dev",
+      label: "rofinn.dev",
+    },
+    owner: "Rory Finnegan",
+    contribution: "Author",
+    languages: ["Typescript"],
+  },
+  {
+    name: "shepherd",
+    description:
+      "A provider independent framework for managing collections of cloud resources. ",
+    link: {
+      href: "https://github.com/invenia/shepherd",
+      label: "shepherd",
+    },
+    owner: "Invenia",
+    contribution: "Author",
+    languages: ["Python"],
+  },
+  {
+    name: "StatsBase.jl",
+    description: "Basic statistics for Julia",
+    link: {
+      href: "https://github.com/JuliaStats/StatsBase.jl",
+      label: "StatsBase.jl",
+    },
+    owner: "Julia Stats",
+    contribution: "Contributor",
+    languages: ["Julia"],
+  },
+  {
+    name: "Syslogs.jl",
+    description: "Julia syslog interface",
+    link: {
+      href: "https://github.com/invenia/Syslogs.jl",
+      label: "Syslogs.jl",
+    },
+    owner: "Invenia",
+    contribution: "Author",
+    languages: ["Julia"],
+  },
+  {
+    name: "TimeZones.jl",
+    description:
+      "Olson Timezone Database Access for the Julia Programming Language",
+    link: {
+      href: "https://github.com/invenia/TimeZones.jl",
+      label: "TimeZones.jl",
+    },
+    owner: "Rory Finnegan",
+    contribution: "Contributor",
     languages: ["Julia"],
   },
   // TODO: Add rofinn.dev and fuzzydin to list when they're released
@@ -84,49 +220,43 @@ export const metadata: Metadata = {
 
 export default function Projects() {
   return (
-    <SimpleLayout
-      title="Things I've made"
-      intro="Contributing to OSS has been one of my favourite ways to learn."
-    >
-      <ul
-        role="list"
-        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+    <div className="projects">
+      <Waves />
+      <SimpleLayout
+        title="Things I've worked on"
+        intro="Contributing to OSS has been one of my favourite ways to learn"
       >
-        {projects.map((project) => (
-          <Card as="li" key={project.name}>
-            {/* <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={project.logo}
-                alt=""
-                className="h-8 w-8"
-                unoptimized
-              />
-            </div> */}
-            <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
-            </h2>
-            <Card.Description>{project.description}</Card.Description>
-            <div className="relative z-10 mt-6 gap-x-2 flex text-sm text-zinc-400 dark:text-zinc-200">
-              {project.languages.map((language) => (
-                <div
-                  key={language}
-                  className="rounded-full bg-white/90 px-2 py-1 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-                >
-                  {language}
-                </div>
-              ))}
-            </div>
-            {/* <p className="relative z-10 mt-6 flex text-xs text-zinc-400 transition group-hover:text-sky-500 dark:text-zinc-200">
-              Owner: {project.owner},<br />
-              Contribution: {project.contribution}
-            </p> */}
-            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-sky-500 dark:text-zinc-200">
-              <LinkIcon className="h-6 w-6 flex-none" />
-              <span className="ml-2">{project.link.label}</span>
-            </p>
-          </Card>
-        ))}
-      </ul>
-    </SimpleLayout>
+        <table className="table-auto w-full text-left text-sm">
+          <thead className="text-md md:text-lg font-bold border-b border-overlay0">
+            <tr>
+              <th className="p-2">Name</th>
+              <th className="p-2">Description</th>
+              <th className="p-2">Languages</th>
+              <th className="p-2">Owner</th>
+              <th className="p-2">Contribution</th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects.map((project) => (
+              <tr key={project.name}>
+                <td className="p-2">
+                  <Link href={project.link.href}>
+                    <h2 className="text-md lg:text-lg">{project.name}</h2>
+                  </Link>
+                </td>
+                <td className="p-2">{project.description}</td>
+                <td className="p-2">
+                  <div className="flex flex-row gap-2">
+                    {project.languages.map((l) => icons[l])}
+                  </div>
+                </td>
+                <td className="p-2">{project.owner}</td>
+                <td className="p-2">{project.contribution}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </SimpleLayout>
+    </div>
   );
 }

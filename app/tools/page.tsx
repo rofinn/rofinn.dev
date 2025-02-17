@@ -2,6 +2,7 @@ import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { SimpleLayout } from "@/components/SimpleLayout";
+import { Waves } from "@/components/Waves";
 
 function ToolsSection({
   children,
@@ -42,17 +43,16 @@ export const metadata = {
 
 export default function Uses() {
   return (
-    <>
-      <Container className="mt-16 sm:mt-32">
+    <div className="tools">
+      <Waves />
+      <Container className="flex flex-col w-2/3 h-screen items-center justify-center flex-grow m-auto">
         <blockquote className="gap-y-8 flex flex-col items-end justify-end">
-          <p className="font-semibold italic text-lg lg:text-2xl text-zinc-800 dark:text-zinc-400">
+          <p className="font-semibold italic text-lg lg:text-2xl">
             "People think that computer science is the art of geniuses but the
             actual reality is the opposite,&nbsp; just many people doing things
             that build on each other, like a wall of mini stones."
           </p>
-          <p className="text-lg lg:text-2xl text-zinc-800 dark:text-zinc-400">
-            - Donald Knuth
-          </p>
+          <p className="text-lg lg:text-2xl">- Donald Knuth</p>
         </blockquote>
       </Container>
       <SimpleLayout
@@ -158,15 +158,8 @@ export default function Uses() {
             <Tool title="Keychron K8 Keyboard">
               I know some folks have strong opinions about mechanical keyboards.
               I don't think the keychron is anything to write home about, but
-              <li>
-                <ul>it has decent switch feel</ul>
-                <ul>seems to be holding up for the past couple years</ul>
-                <ul>
-                  can connect to 3 different computers (4 if you include wired
-                  connections)
-                </ul>
-                <ul>it wasn't pretty cost effective at the time</ul>
-              </li>
+              it's been a pretty good value and I can connect it wirelessly to 3
+              different systems.
             </Tool>
             <Tool title="MX Master 2S">
               It's just the go-to ergonomic mouse. Like the keychron it can
@@ -209,6 +202,6 @@ export default function Uses() {
           </ToolsSection>
         </div>
       </SimpleLayout>
-    </>
+    </div>
   );
 }
