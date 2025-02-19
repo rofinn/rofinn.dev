@@ -4,13 +4,20 @@ import type { Config } from "tailwindcss";
 import typographyStyles from "./typography";
 
 const config: Config = {
+  mode: "jit",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: "selector",
-  plugins: [typographyPlugin],
+  plugins: [
+    // typographyPlugin,
+    require("@catppuccin/tailwindcss")({
+      prefix: false,
+      defaultFlavor: "Frappe",
+    }),
+  ],
   theme: {
     fontSize: {
       xs: ["0.8125rem", { lineHeight: "1.5rem" }],
