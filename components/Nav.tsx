@@ -27,6 +27,7 @@ import {
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
+import { Divider } from "@/components/Divider";
 import avatarImage from "@/images/avatar.jpg";
 
 const WAVE_SYMBOL = "\u223F";
@@ -58,7 +59,7 @@ function NavItem({
         href={href}
         aria-label={name}
         className={clsx(
-          "relative block group transition my-2 mx-auto hover:brightness-125 hover:scale-125",
+          "flex group transition items-center justify-center my-2 mx-auto hover:brightness-125 hover:scale-125",
           colorMap[color],
           isActive
             ? "brightness-125 scale-125"
@@ -66,7 +67,7 @@ function NavItem({
         )}
       >
         {children}
-        <span className="absolute w-auto top-0 left-8 text-xs rounded-md shadow-md scale-0 group-hover:scale-100 transition-all duration-100 origin-left">
+        <span className="absolute w-auto top-0 left-8 text-xs rounded-md shadow-md scale-0 md:group-hover:scale-100 transition-all duration-100 origin-left">
           {name}
         </span>
       </Link>
@@ -74,13 +75,15 @@ function NavItem({
   );
 }
 
-export function Nav() {
+function DesktopNavigation({ className }: { className: string }) {
   const navIconSize = "24";
   const socialIconSize = "20";
 
   return (
-    <nav className="fixed top-0 left-0 h-screen flex flex-col w-8 items-center">
-      <ul className="items-center justify-center flex-grow space-y-4">
+    <nav
+      className={`fixed top-0 left-0 h-screen flex flex-col w-8 justify-center ${className}`}
+    >
+      <ul className="flex-grow space-y-4">
         <NavItem href="/" name="Home" color="lavender">
           <b className="text-4xl">{WAVE_SYMBOL}</b>
         </NavItem>
@@ -118,5 +121,61 @@ export function Nav() {
         </NavItem>
       </ul>
     </nav>
+  );
+}
+
+function MobileNavigation({ className }: { className: string }) {
+  const navIconSize = "36";
+  const socialIconSize = "32";
+
+  return (
+    <nav className={`fixed z-50 bottom-0 h-16 w-full bg-crust ${className}`}>
+      <ul className="flex flex-row items-center justify-center space-x-6">
+        <NavItem href="/" name="Home" color="lavender">
+          <b className="pb-4 text-5xl">{WAVE_SYMBOL}</b>
+        </NavItem>
+        <NavItem href="/CV" name="CV" color="blue">
+          <PiReadCvLogoFill size={navIconSize} />
+        </NavItem>
+        <NavItem href="/projects" name="Projects" color="green">
+          <PiCode size={navIconSize} />
+          {/* <PiFolderOpen size={navIconSize} /> */}
+        </NavItem>
+        <NavItem href="/content" name="Content" color="peach">
+          <PiRssSimpleBold size={navIconSize} />
+        </NavItem>
+        <NavItem href="/tools" name="Tools" color="mauve">
+          <PiGearFill size={navIconSize} />
+        </NavItem>
+      </ul>
+      {/* <ul className="flex-none space-y-4 text-overlay2">
+        <NavItem href="https://github.com/rofinn" name="GitHub" color="white">
+          <SiGithub size={socialIconSize} />
+        </NavItem>
+        <NavItem
+          href="https://bsky.app/profile/rofinn.bsky.social"
+          name="Bluesky"
+          color="white"
+        >
+          <SiBluesky size={socialIconSize} />
+        </NavItem>
+        <NavItem
+          href="https://linkedin.com/in/roryfinnegan"
+          name="LinkedIn"
+          color="white"
+        >
+          <SiLinkedin size={socialIconSize} />
+        </NavItem>
+      </ul> */}
+    </nav>
+  );
+}
+
+export function Nav() {
+  return (
+    <>
+      <MobileNavigation className="md:hidden" />
+      <DesktopNavigation className="invisible md:visible" />
+    </>
   );
 }
