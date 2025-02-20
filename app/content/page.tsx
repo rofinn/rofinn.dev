@@ -50,9 +50,10 @@ export default async function ArticlesIndex() {
       <SimpleLayout
         title="NB."
         intro="A list of posts, presentations and articles related to software development and research."
+        className=""
       >
         <div className="md:pl-6">
-          <div className="flex max-w-3xl flex-col">
+          <div className="flex flex-col">
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}

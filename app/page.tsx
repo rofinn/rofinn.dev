@@ -3,7 +3,7 @@ import Link from "next/link";
 import clsx from "clsx";
 
 import { Card } from "@/components/Card";
-import { Container } from "@/components/Container";
+import { SimpleLayout } from "@/components/SimpleLayout";
 import { Divider } from "@/components/Divider";
 import { Waves } from "@/components/Waves";
 
@@ -161,11 +161,11 @@ export default async function Home() {
   return (
     <div className="home">
       <Waves />
-      <Container className="flex flex-col w-1/2 h-screen items-center justify-center flex-grow m-auto">
-        <h1 className="font-bold text-2xl lg:text-4xl">Rory Finnegan</h1>
-        <h2 className="text-lavender text-lg lg:text-xl">
-          Software spelunker, ex-researcher and outdoor enthusiast
-        </h2>
+      <SimpleLayout
+        title="Rory Finnegan"
+        intro="Software spelunker, ex-researcher and outdoor enthusiast"
+        className="justify-center"
+      >
         <p className="my-12">
           I'm a software developer and neuroscientist who enjoys working on
           complex interdisciplinary problems. My academic and vocational
@@ -175,7 +175,7 @@ export default async function Home() {
           currently work at Denvr Dataworks, helping customers architect ML
           applications for Denvr's cloud platform.
         </p>
-      </Container>
+      </SimpleLayout>
     </div>
   );
 }

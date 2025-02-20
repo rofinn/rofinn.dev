@@ -45,7 +45,7 @@ export default function Uses() {
   return (
     <div className="tools">
       <Waves />
-      <Container className="flex flex-col w-2/3 h-screen items-center justify-center flex-grow m-auto">
+      <Container className="flex flex-col h-screen justify-center items-center flex-grow m-auto">
         <blockquote className="gap-y-8 flex flex-col items-end justify-end">
           <p className="font-semibold italic text-lg lg:text-2xl">
             "People think that computer science is the art of geniuses but the
@@ -58,6 +58,7 @@ export default function Uses() {
       <SimpleLayout
         title="Tools"
         intro="Everyone has their favorite programming languages, operating systems, database technologies, hardware, etc. This is just a list of some of the tools I like to work with."
+        className=""
       >
         {/* Add a description to each tools section */}
         <div className="space-y-8">

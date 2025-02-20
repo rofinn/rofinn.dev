@@ -126,7 +126,6 @@ function DesktopNavigation({ className }: { className: string }) {
 
 function MobileNavigation({ className }: { className: string }) {
   const navIconSize = "36";
-  const socialIconSize = "32";
 
   return (
     <nav className={`fixed z-50 bottom-0 h-16 w-full bg-crust ${className}`}>
@@ -148,25 +147,6 @@ function MobileNavigation({ className }: { className: string }) {
           <PiGearFill size={navIconSize} />
         </NavItem>
       </ul>
-      {/* <ul className="flex-none space-y-4 text-overlay2">
-        <NavItem href="https://github.com/rofinn" name="GitHub" color="white">
-          <SiGithub size={socialIconSize} />
-        </NavItem>
-        <NavItem
-          href="https://bsky.app/profile/rofinn.bsky.social"
-          name="Bluesky"
-          color="white"
-        >
-          <SiBluesky size={socialIconSize} />
-        </NavItem>
-        <NavItem
-          href="https://linkedin.com/in/roryfinnegan"
-          name="LinkedIn"
-          color="white"
-        >
-          <SiLinkedin size={socialIconSize} />
-        </NavItem>
-      </ul> */}
     </nav>
   );
 }

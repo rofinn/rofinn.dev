@@ -3,14 +3,18 @@ import { Container } from "@/components/Container";
 export function SimpleLayout({
   title,
   intro,
+  className,
   children,
 }: {
   title: string;
   intro: string;
+  className: string;
   children?: React.ReactNode;
 }) {
   return (
-    <Container className="flex flex-col h-screen flex-grow mt-8 m-auto">
+    <Container
+      className={`flex flex-col h-screen flex-grow items-center mt-8 m-auto ${className}`}
+    >
       <header className="max-w-2xl">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           {title}

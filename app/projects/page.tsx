@@ -225,6 +225,7 @@ export default function Projects() {
       <SimpleLayout
         title="Things I've worked on"
         intro="Contributing to OSS has been one of my favourite ways to learn"
+        className=""
       >
         <table className="table-auto w-full text-left text-sm">
           <thead className="text-md md:text-lg font-bold border-b border-overlay0">
