@@ -29,8 +29,8 @@ const publishPost = (name) => {
       writeFileSync(
         join(contentdir, name, src + "x"),
         readFileSync(join(postsdir, name, src), "utf-8")
-          .replace("```mdx", "")
-          .replace("mdx```", ""),
+          .replace("<!--mdx", "")
+          .replace("mdx-->", ""),
       );
     } else {
       copyFileSync(join(postsdir, name, src), join(contentdir, name, src));

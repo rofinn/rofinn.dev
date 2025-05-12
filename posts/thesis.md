@@ -1,21 +1,4 @@
-```mdx
-import { ArticleLayout } from '@/components/ArticleLayout'
 
-export const article = {
-  authors: 'Rory Finnegan',
-  date: '2016-09-30',
-  title: "Computational Modelling of Adult Hippocampal Neurogenesis",
-  description: "Thesis on Modelling Hippocampal Neurogensis with Restricted Boltzmann Machines",
-  format: 'thesis'
-}
-
-export const metadata = {
-  title: article.title,
-  description: article.description,
-}
-
-export default (props) => <ArticleLayout article={article} {...props} />
-mdx```
 
 # Computational Modelling of Adult Hippocampal Neurogensis (abstract)
 

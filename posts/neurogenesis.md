@@ -1,22 +1,3 @@
-```mdx
-import { ArticleLayout } from '@/components/ArticleLayout'
-
-export const article = {
-  authors: 'Rory Finnegan and Suzanna Becker',
-  date: '2015-11-05',
-  title: "Neurogenesis Paradox",
-  description: "Neurogenesis paradoxically decreases both pattern separation and memory interference",
-  format: 'article'
-}
-
-export const metadata = {
-  title: article.title,
-  description: article.description,
-}
-
-export default (props) => <ArticleLayout article={article} {...props} />
-mdx```
-
 # Neurogenesis Paradox
 
 ## Neurogenesis paradoxically decreases both pattern separation and memory interference (abstract)

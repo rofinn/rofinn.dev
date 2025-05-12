@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -14,7 +13,6 @@ import {
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import avatarImage from "@/images/avatar.jpg";
 
 const WAVE_SYMBOL = "\u223F";
 
@@ -238,7 +236,7 @@ export function Header() {
       >
         <div
           ref={headerRef}
-          className="top-0 z-10 h-16 py-3"
+          className="top-0 z-10 h-16 py-4"
           style={{
             position:
               "var(--header-position)" as React.CSSProperties["position"],

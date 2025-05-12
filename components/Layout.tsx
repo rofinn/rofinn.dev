@@ -1,7 +1,3 @@
-import Link from "next/link";
-import { Waves } from "@/components/Waves";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Nav } from "@/components/Nav";
 

@@ -1,22 +1,3 @@
-```mdx
-import { ArticleLayout } from '@/components/ArticleLayout'
-
-export const article = {
-  authors: 'Rory Finnegan',
-  date: '2013-09-22',
-  title: "Let's have some Funtoo!",
-  description: 'Installing Funtoo on the Samsung Series 7 Chronos',
-  format: 'blog',
-}
-
-export const metadata = {
-  title: article.title,
-  description: article.description,
-}
-
-export default (props) => <ArticleLayout article={article} {...props} />
-mdx```
-
 The following is a repost of some notes I made about installing Funtoo Linux in a `chroot` years ago.
 While the original post is rather old, and Funtoo doesn't seem to be an actively [maintained][1] Linux distro anymore, I've been surprised by how many little nuggets I refer back to from time to time.
 While closing down some old accounts I figured I'd copy that content over for future reference.

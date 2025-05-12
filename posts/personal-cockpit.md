@@ -1,22 +1,3 @@
-```mdx
-import { ArticleLayout } from '@/components/ArticleLayout'
-
-export const article = {
-  authors: 'Rory Finnegan, Barret Ens and Pourang Irani',
-  date: '2014-04-21',
-  title: "Personal Cockpit",
-  description: "A Spatial Interface for Effective Task Switching on Head-Worn Displays",
-  format: 'article'
-}
-
-export const metadata = {
-  title: article.title,
-  description: article.description,
-}
-
-export default (props) => <ArticleLayout article={article} {...props} />
-mdx```
-
 # Personal Cockpit (abstract)
 
 ## A Spatial Interface for Effective Task Switching on Head-Worn Displays

@@ -1,34 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import clsx from "clsx";
 import Link from "next/link";
 
 // Icons we're want to use for our navbar
-import { IconContext } from "react-icons";
 import { SiBluesky, SiGithub, SiLinkedin, SiRss } from "react-icons/si";
 import {
-  PiFolderOpen,
   PiCode,
   PiGearFill,
-  PiGearSixFill,
   PiReadCvLogoFill,
   PiRssSimpleBold,
 } from "react-icons/pi";
 
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import {
-  Popover,
-  PopoverButton,
-  PopoverBackdrop,
-  PopoverPanel,
-} from "@headlessui/react";
-import clsx from "clsx";
-
-import { Container } from "@/components/Container";
-import { Divider } from "@/components/Divider";
-import avatarImage from "@/images/avatar.jpg";
 
 const WAVE_SYMBOL = "\u223F";
 
@@ -81,13 +65,13 @@ function DesktopNavigation({ className }: { className: string }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 h-screen flex flex-col w-8 justify-center ${className}`}
+      className={`fixed top-0 left-0 h-screen flex flex-col w-8 lg:w-12 p-2 justify-center ${className}`}
     >
       <ul className="flex-grow space-y-4">
         <NavItem href="/" name="Home" color="lavender">
           <b className="text-4xl">{WAVE_SYMBOL}</b>
         </NavItem>
-        <NavItem href="/CV" name="CV" color="blue">
+        <NavItem href="/cv" name="CV" color="blue">
           <PiReadCvLogoFill size={navIconSize} />
         </NavItem>
         <NavItem href="/projects" name="Projects" color="green">
@@ -125,7 +109,7 @@ function DesktopNavigation({ className }: { className: string }) {
 }
 
 function MobileNavigation({ className }: { className: string }) {
-  const navIconSize = "36";
+  const navIconSize = "24";
 
   return (
     <nav className={`fixed z-50 bottom-0 h-16 w-full bg-crust ${className}`}>

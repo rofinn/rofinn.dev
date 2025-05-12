@@ -21,6 +21,33 @@
     @apply stroke-lavender;
   }
 
+  .resume h1 {
+    @apply text-blue text-3xl;
+  }
+  .resume h2 {
+    @apply text-blue text-xl pt-8;
+  }
+  .resume h3 {
+    @apply text-lg pt-8;
+  }
+  .resume h4 {
+    @apply text-blue text-xs;
+  }
+  .resume hr {
+    @apply border-base p-2;
+  }
+  .resume ul {
+    @apply list-disc list-inside p-4;
+  }
+  .resume li {
+    @apply text-xs;
+  }
+  .resume a {
+    @apply text-blue hover:text-subtext1;
+  }
+  /* .resume p {
+    @apply pl-2;
+  } */
   .projects h2 {
     @apply text-green;
   }
