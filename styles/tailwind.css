@@ -1,4 +1,74 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import './prism.css';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+/* @import "./prism.css"; */
+@import "tailwindcss/utilities";
+
+@layer base {
+  h1 {
+    @apply text-text;
+  }
+  p {
+    @apply text-subtext1;
+  }
+  svg {
+    @apply stroke-[0.1];
+  }
+
+  .home h2 {
+    @apply text-lavender;
+  }
+  .home svg {
+    @apply stroke-lavender;
+  }
+
+  .resume h1 {
+    @apply text-blue text-3xl;
+  }
+  .resume h2 {
+    @apply text-blue text-xl pt-8;
+  }
+  .resume h3 {
+    @apply text-lg pt-8;
+  }
+  .resume h4 {
+    @apply text-blue text-xs;
+  }
+  .resume hr {
+    @apply border-base p-2;
+  }
+  .resume ul {
+    @apply list-disc list-inside p-4;
+  }
+  .resume li {
+    @apply text-xs;
+  }
+  .resume a {
+    @apply text-blue hover:text-subtext1;
+  }
+  /* .resume p {
+    @apply pl-2;
+  } */
+  .projects h2 {
+    @apply text-green;
+  }
+  .projects svg {
+    @apply stroke-green;
+  }
+  .projects hover:a {
+    @apply text-green;
+  }
+
+  .content h2 {
+    @apply text-peach;
+  }
+  .content svg {
+    @apply stroke-peach;
+  }
+
+  .tools h2 {
+    @apply text-mauve;
+  }
+  .tools svg {
+    @apply stroke-mauve;
+  }
+}

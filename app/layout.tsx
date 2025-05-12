@@ -2,7 +2,6 @@ import { type Metadata } from "next";
 
 import { Providers } from "@/app/providers";
 import { Layout } from "@/components/Layout";
-import { Waves } from "@/components/Waves";
 
 import "@/styles/tailwind.css";
 
@@ -27,7 +26,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
-      <body className="flex h-full bg-zinc-100 dark:bg-zinc-900">
+      <body className="flex h-full m-auto p-2 gap-12 bg-crust text-text latte dark:frappe">
         <Providers>
           <div className="flex w-full">
             <Layout>{children}</Layout>

@@ -1,22 +1,3 @@
-```mdx
-import { ArticleLayout } from '@/components/ArticleLayout'
-
-export const article = {
-  authors: 'Rory Finnegan, Mark Shaw and Suzanna Becker',
-  date: '2017-06-30',
-  title: "The Rewiring Brain (ch. 21)",
-  description: "Restricted Boltzmann Machine Models of Hippocampal Coding and Neurogenesis",
-  format: 'book chapter'
-}
-
-export const metadata = {
-  title: article.title,
-  description: article.description,
-}
-
-export default (props) => <ArticleLayout article={article} {...props} />
-mdx```
-
 # Restricted Boltzmann Machine Models of Hippocampal Coding and Neurogenesis (abstract)
 
 The hippocampus has been traditionally viewed as a memorization device, creating orthogonalized representations (pattern separation) in the dentate gyrus, and performing associative retrieval (pattern completion) in the CA3.

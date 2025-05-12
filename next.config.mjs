@@ -5,11 +5,12 @@ import remarkGfm from "remark-gfm";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
-  experimental: {
-    outputFileTracingIncludes: {
-      "/articles/*": ["./app/articles/**/*.mdx"],
-    },
-  },
+  // experimental: {
+  //   outputFileTracingIncludes: {
+  //     "/articles/*": ["./app/articles/**/*.mdx"],
+  //     "/cv": ["./app/cv/*.md"],
+  //   },
+  // },
 };
 
 const withMDX = nextMDX({

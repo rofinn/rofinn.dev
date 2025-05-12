@@ -1,5 +1,6 @@
 
 import { ArticleLayout } from '@/components/ArticleLayout'
+import Markdown from '@/posts/process.md'
 
 export const article = {
   author: 'Rory Finnegan',
@@ -14,7 +15,8 @@ export const metadata = {
   description: article.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
-
-
-# What's wrong with P\*\*\*\*\*\*?
+export default (props) => (
+  <ArticleLayout article={article} {...props}>
+    <Markdown />
+  </ArticleLayout>
+)

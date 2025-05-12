@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -14,7 +13,6 @@ import {
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
-import avatarImage from "@/images/avatar.jpg";
 
 const WAVE_SYMBOL = "\u223F";
 
@@ -100,7 +98,7 @@ function MobileNavigation(
 ) {
   return (
     <Popover {...props}>
-      <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
         Menu
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </PopoverButton>
@@ -115,14 +113,12 @@ function MobileNavigation(
       >
         <div className="flex flex-row-reverse items-center justify-between">
           <PopoverButton aria-label="Close menu" className="-m-1 p-1">
-            <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+            <CloseIcon className="h-6 w-6" />
           </PopoverButton>
-          <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-            Navigation
-          </h2>
+          <h2 className="text-sm font-medium">Navigation</h2>
         </div>
         <nav className="mt-6">
-          <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+          <ul className="-my-2 divide-y divide-zinc-100 dark:divide-zinc-100/5">
             {/* <MobileNavItem href="/about">About</MobileNavItem> */}
             <MobileNavItem href="/content">Content</MobileNavItem>
             <MobileNavItem href="/projects">Projects</MobileNavItem>
@@ -149,9 +145,7 @@ function NavItem({
         href={href}
         className={clsx(
           "relative block px-3 py-2 transition",
-          isActive
-            ? "text-sky-500 dark:text-sky-400"
-            : "hover:text-sky-500 dark:hover:text-sky-400",
+          isActive ? "text-sky-500" : "hover:text-sky-500",
         )}
       >
         {children}
@@ -166,7 +160,7 @@ function NavItem({
 function DesktopNavigation(props: React.ComponentPropsWithoutRef<"nav">) {
   return (
     <nav {...props}>
-      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10">
         {/* <NavItem href="/about">About</NavItem> */}
         <NavItem href="/content">Content</NavItem>
         <NavItem href="/projects">Projects</NavItem>
@@ -216,7 +210,7 @@ function Home() {
       <Link
         href="/"
         aria-label="Home"
-        className="pointer-events-auto text-2xl/none text-zinc-900 dark:text-sky-400"
+        className="pointer-events-auto text-2xl/none"
       >
         <b>{WAVE_SYMBOL}</b>
       </Link>
@@ -234,7 +228,7 @@ export function Header() {
   return (
     <>
       <header
-        className="pointer-events-none relative z-50 flex flex-none flex-col"
+        className="sticky top-0 pointer-events-none z-50 flex flex-none flex-col bg-zinc-100 dark:bg-zinc-900"
         style={{
           height: "var(--header-height)",
           marginBottom: "var(--header-mb)",
@@ -242,7 +236,7 @@ export function Header() {
       >
         <div
           ref={headerRef}
-          className="top-0 z-10 h-16 pt-6"
+          className="top-0 z-10 h-16 py-4"
           style={{
             position:
               "var(--header-position)" as React.CSSProperties["position"],

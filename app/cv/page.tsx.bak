@@ -4,6 +4,7 @@ import Link from "next/link";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
+import { Waves } from "@/components/Waves";
 import {
   GitHubIcon,
   InstagramIcon,
@@ -26,11 +27,8 @@ function SocialLink({
 }) {
   return (
     <li className={clsx(className, "flex")}>
-      <Link
-        href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-sky-500 dark:text-zinc-200 dark:hover:text-sky-500"
-      >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-sky-500" />
+      <Link href={href} className="group flex text-sm font-medium transition">
+        <Icon className="h-6 w-6 flex-none transition" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -57,6 +55,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <Container className="mt-16 sm:mt-32">
+      <Waves />
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
         <div className="lg:pl-20">
           <div className="max-w-xs px-2.5 lg:max-w-none">
@@ -64,15 +63,15 @@ export default function About() {
               src={portraitImage}
               alt=""
               sizes="(min-width: 1024px) 32rem, 20rem"
-              className="aspect-square rotate-3 rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 grayscale"
+              className="aspect-square rotate-3 rounded-full object-cover grayscale"
             />
           </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Rory Finnegan
           </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <div className="mt-6 space-y-7">
             <p>
               With over a decade of experience in software development and
               research,&nbsp; I am an end-to-end generalist who excels in

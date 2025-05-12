@@ -1,0 +1,21 @@
+import { ResumeLayout } from '@/components/ResumeLayout'
+import Markdown from '@/CV/document.md'
+
+export const article = {
+  authors: 'Rory Finnegan',
+  date: '2025-03-29',
+  title: "Curriculum Vitae",
+  description: '',
+  format: 'cv',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => (
+  <ResumeLayout article={article} {...props}>
+    <Markdown />
+  </ResumeLayout>
+);
