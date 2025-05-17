@@ -1,22 +1,21 @@
-import assert from "assert";
-import * as cheerio from "cheerio";
 import { Feed } from "feed";
+import { getAllArticles } from "@/lib/content";
 
 export async function GET(req: Request) {
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   if (!siteUrl) {
     throw Error("Missing NEXT_PUBLIC_SITE_URL environment variable");
   }
 
-  let author = {
+  const author = {
     name: "Rory Finnegan",
     email: "contact@rofinn.net",
   };
 
-  let feed = new Feed({
+  const feed = new Feed({
     title: author.name,
-    description: "Your blog description",
+    description: "Software spelunker, ex-researcher and outdoor enthusiast",
     author,
     id: siteUrl,
     link: siteUrl,
@@ -28,35 +27,19 @@ export async function GET(req: Request) {
     },
   });
 
-  let articleIds = require
-    .context("../content", true, /\/page\.mdx$/)
-    .keys()
-    .filter((key) => key.startsWith("./"))
-    .map((key) => key.slice(2).replace(/\/page\.mdx$/, ""));
+  const articles = await getAllArticles();
 
-  for (let id of articleIds) {
-    let url = String(new URL(`/articles/${id}`, req.url));
-    let html = await (await fetch(url)).text();
-    let $ = cheerio.load(html);
-
-    let publicUrl = `${siteUrl}/articles/${id}`;
-    let article = $("article").first();
-    let title = article.find("h1").first().text();
-    let date = article.find("time").first().attr("datetime");
-    let content = article.find("[data-mdx-content]").first().html();
-
-    assert(typeof title === "string");
-    assert(typeof date === "string");
-    assert(typeof content === "string");
-
+  for (const article of articles) {
+    const publicUrl = `${siteUrl}/content/${article.slug}`;
+    
     feed.addItem({
-      title,
+      title: article.title,
       id: publicUrl,
       link: publicUrl,
-      content,
+      description: article.description,
       author: [author],
       contributor: [author],
-      date: new Date(date),
+      date: new Date(article.date),
     });
   }
 

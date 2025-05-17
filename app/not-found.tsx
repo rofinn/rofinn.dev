@@ -11,9 +11,6 @@ export default function NotFound() {
         <p className="mt-4">
           Sorry, we couldn’t find the page you’re looking for.
         </p>
-        {/* <Button href="/" variant="secondary" className="mt-4">
-          Go back home
-        </Button> */}
       </div>
     </Container>
   );
