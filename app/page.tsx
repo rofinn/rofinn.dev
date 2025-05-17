@@ -4,14 +4,7 @@ import clsx from "clsx";
 
 import { Card } from "@/components/Card";
 import { SimpleLayout } from "@/components/SimpleLayout";
-import { Divider } from "@/components/Divider";
 import { Waves } from "@/components/Waves";
-
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  BlueSkyIcon,
-} from "@/components/SocialIcons";
 
 import logoDenvr from "@/images/logos/denvr.webp";
 import logoInveniaLabs from "@/images/logos/invenia-labs.jpg";
@@ -19,10 +12,6 @@ import logoInvenia from "@/images/logos/invenia-technical-computing.png";
 import logoUofM from "@/images/logos/university-of-manitoba.png";
 import logoNML from "@/images/logos/canada-nml.png";
 
-import headworn from "@/images/photos/headworn-displays.png";
-import impute from "@/images/photos/impute.png";
-import neurogenesis from "@/images/photos/neurogenesis-paper.png";
-import rag from "@/images/photos/RAG.svg";
 import { type ArticleWithSlug, getAllArticles } from "@/lib/content";
 import { formatDate } from "@/lib/formatDate";
 
@@ -143,13 +132,6 @@ function Experience() {
       </ol>
       <div className="flex">
         <div className="w-1/2 md:w-4/5" />
-        {/* <Button
-          href="#"
-          variant="primary"
-          className="group mt-6 w-1/2 md:w-1/5"
-        >
-          More info
-        </Button> */}
       </div>
     </div>
   );
