@@ -1,12 +1,12 @@
 @page {
   size: letter;
-  margin: 0.75in;
+  margin: 0.7in;
 }
 
 @media print {
   /* Obsidian snippet to style output of pdf exports */
   * {
-    color: black !important;
+    color: #4c4f69 !important;
     background-color: white !important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     line-height: 1.15;
@@ -18,36 +18,27 @@
   /* Resume header styling */
   h1 {
     font-size: 24pt !important;
-    margin-bottom: 0.2in;
-    color: #7287fd !important;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.1in;
     page-break-after: avoid;
   }
 
   h2 {
     font-size: 14pt !important;
-    color: #7287fd !important;
-    margin-top: 0.3in;
-    margin-bottom: 0.1in;
+    margin-bottom: 0.05in;
     page-break-after: avoid;
   }
 
   h3 {
     font-size: 12pt !important;
-    font-weight: 600;
-    margin-top: 0.2in;
-    margin-bottom: 0.05in;
     page-break-after: avoid;
   }
   h4 {
-    color: #9ba9fd !important;
+    color: #1e66f5 !important;
     font-size: 8pt !important;
   }
   /* Content styling */
   p {
     font-size: 10pt !important;
-    margin: 0.1in 0;
+    margin: 0.05in 0;
     page-break-inside: avoid !important;
   }
 
@@ -63,12 +54,19 @@
   }
 
   li:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0.1in;
   }
 
   /* Link styling */
   a {
-    color: #9ba9fd !important;
+    color: #1e66f5 !important;
     text-decoration: none;
+  }
+
+  hr {
+    border: none;
+    /* border-top: 1px solid #ddd; */
+    margin: 0.1in 0;
+    /* margin-bottom: 0.1in; */
   }
 }

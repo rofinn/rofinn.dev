@@ -1,53 +1,66 @@
 # Rory Finnegan
 
-Software Developer | 8+ years of experience building ML and data pipelines
-
 #### [ [rofinn.dev](https://rofinn.dev/) ] . [ [linkedin.com/in/roryfinnegan](https://linkedin.com/in/roryfinnegan) ] . [ [github.com/rofinn](https://github.com/rofinn) ]
 
+---
+
+Results-driven software developer with expertise in building machine learning platforms, data pipelines, and cloud infrastructure. Proven track record of optimizing performance, reducing costs, and accelerating development cycles across complex ML systems.
+
+
 ## Experience
+### **Solutions Architect** | Denvr Dataworks *(2024-present)*
+Led technical alignment between client requirements and Denvr's service offerings, serving as the bridge between stakeholders.
+
+- Accelerated client and employee onboarding with comprehensive documentation and demos
+- Informed data-driven product roadmaps with detailed market research and competitive analysis
+- Standardized internal workflows, reducing CI/CD failures and improving time to first response
+- Developed SDKs and tooling to eliminate critical bottlenecks for both clients and internal teams
+
 
 ### **Research Software Developer** | Invenia Labs *(2020-2023)*
 
-Developed production-ready models and scientific software in line with research objectives.
+Translated research concepts into production-ready models and scientific software solutions.
 
-- Mentored colleagues and guided long-term research initiatives
-- Simplified prototyping environments resulting in lower research lead times
-- Accelerated model evaluation throughput by developing a modular feature selection and transformation API
-- Improved memory consumption and NAT usage to reduce AWS costs by 25-30%
-- Reduced average query latency by an order of magnitude using a local caching solution
+- Mentored junior researchers and established technical roadmaps for long-term research initiatives
+- Designed streamlined prototyping environments, reducing research iteration cycles
+- Built a feature selection and transformation API, increasing model evaluation throughput by 4x
+- Optimized cloud resource utilization, resulting in a 25-30% reduction in AWS costs
+- Implemented local caching solution that reduced average query latency by an order of magnitude
 
 
 ### **Software Developer** | Invenia Technical Computing *(2016-2020)*
-Developed and maintained core production data and ML platform.
+Core contributor to production data and ML platform infrastructure.
 
-- Reduced Gentoo AMI build times and EC2 stack deployment times by an order of magnitude
+- Reengineered Gentoo AMI build pipeline, reducing build times from hours to minutes
 - Migrated the monolithic MATLAB application to a modular Julia / Python platform
-- Reduced DB query execution times by an order of magnitude
-- Implemented a release management process to increase CI/CD velocity and stability
-- Interim team lead for 9 months
+- Tuned database indices and optimized queries, improving response times by 10x
+- Established release management process that increased deployment frequency by 3x while reducing incidents
 
 ### **Undergraduate Research Associate** | HCILab, University of Manitoba *(2012-2013)*
 
-Developed an immersive application for visualizing and interacting with spatiotemporal data using C++ and OpenGL
+Developed immersive spatiotemporal data visualization application using C++ and OpenGL.
 
 ### **Computer Programmer & Analyst** | National Microbiology Lab *(2012-2012)*
 
-Continued development of an HIV mutation analysis pipeline to aid clinicians in prescribing eﬀective drug treatments
+Enhanced HIV mutation analysis pipeline supporting clinicians in treatment decision-making.
 
 ## Skill
 
-- **Programming** Python, Julia, SQL, Shell
-- **Software** AWS, Git, Docker, Linux, PostgreSQL
+- **Languages:** Python, Julia, SQL, Shell
+- **Cloud & Infrastructure:** Linux, AWS, Docker, Kubernetes, Terraform
+- **Databases:** PostgreSQL, SQLite
+- **ML & Data:**  Neural networks, Imputation, Probabilistic graphical models, Convex optimization
 
 ## Education
 
 ### **Master of Science** | McMaster University *(2014-2016)*
 
-Interdisciplinary neuroscience program focused on computational modelling
+Thesis: "Computational Modelling of Adult Hippocampal Neurogenesis"
+Focused on neural network modeling and machine learning applications in neuroscience
 
 ### **Bachelor of Computer Science Hons.** | University of Manitoba *(2008-2013)*
 
-Specializations in computer systems and databases
+Specializations in Computer Systems and Databases
 
 
 ## Publications
