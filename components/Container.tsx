@@ -15,10 +15,10 @@ export const Container = forwardRef<
     <div ref={ref} className={clsx("sm:px-2", className)} {...props}>
       <div className="mx-auto w-full max-w-7xl lg:px-4">
         <div className="relative px-2 sm:px-4 lg:px-8">
-          <div 
+          <div
             className={clsx(
               "mx-auto",
-              size === "wide" ? "max-w-5xl" : "max-w-2xl lg:max-w-5xl"
+              size === "wide" ? "max-w-5xl" : "max-w-2xl lg:max-w-5xl",
             )}
           >
             {children}

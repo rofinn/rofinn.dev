@@ -49,7 +49,7 @@ export function Card({
     <Component
       className={clsx(
         className,
-        "group relative flex flex-col items-start m-12"
+        "group relative flex flex-col items-start m-12",
       )}
     >
       {/* Render eyebrow if provided */}
@@ -57,7 +57,7 @@ export function Card({
         <EyebrowComponent
           className={clsx(
             "relative z-10 order-first mb-3 flex items-center text-sm",
-            eyebrowDecorate && "pl-3.5"
+            eyebrowDecorate && "pl-3.5",
           )}
         >
           {eyebrowDecorate && (
@@ -180,7 +180,7 @@ Card.Eyebrow = function CardEyebrow<T extends React.ElementType = "p">({
       className={clsx(
         className,
         "relative z-10 order-first mb-3 flex items-center text-sm",
-        decorate && "pl-3.5"
+        decorate && "pl-3.5",
       )}
       {...props}
     >

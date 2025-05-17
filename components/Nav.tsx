@@ -20,18 +20,59 @@ const SOCIAL_ICON_SIZE = "20";
 
 // Shared navigation items
 const navItems = [
-  { href: "/", name: "Home", color: "lavender", icon: <b className="text-4xl">{WAVE_SYMBOL}</b>, mobileIcon: <b className="pb-4 text-5xl">{WAVE_SYMBOL}</b> },
-  { href: "/cv", name: "CV", color: "blue", icon: <PiReadCvLogoFill size={NAV_ICON_SIZE} /> },
-  { href: "/projects", name: "Projects", color: "green", icon: <PiCode size={NAV_ICON_SIZE} /> },
-  { href: "/content", name: "Content", color: "peach", icon: <PiRssSimpleBold size={NAV_ICON_SIZE} /> },
-  { href: "/tools", name: "Tools", color: "mauve", icon: <PiGearFill size={NAV_ICON_SIZE} /> },
+  {
+    href: "/",
+    name: "Home",
+    color: "lavender",
+    icon: <b className="text-4xl">{WAVE_SYMBOL}</b>,
+    mobileIcon: <b className="pb-4 text-5xl">{WAVE_SYMBOL}</b>,
+  },
+  {
+    href: "/cv",
+    name: "CV",
+    color: "blue",
+    icon: <PiReadCvLogoFill size={NAV_ICON_SIZE} />,
+  },
+  {
+    href: "/projects",
+    name: "Projects",
+    color: "green",
+    icon: <PiCode size={NAV_ICON_SIZE} />,
+  },
+  {
+    href: "/content",
+    name: "Content",
+    color: "peach",
+    icon: <PiRssSimpleBold size={NAV_ICON_SIZE} />,
+  },
+  {
+    href: "/tools",
+    name: "Tools",
+    color: "mauve",
+    icon: <PiGearFill size={NAV_ICON_SIZE} />,
+  },
 ];
 
 // Shared social items
 const socialItems = [
-  { href: "https://github.com/rofinn", name: "GitHub", color: "white", icon: <SiGithub size={SOCIAL_ICON_SIZE} /> },
-  { href: "https://bsky.app/profile/rofinn.bsky.social", name: "Bluesky", color: "white", icon: <SiBluesky size={SOCIAL_ICON_SIZE} /> },
-  { href: "https://linkedin.com/in/roryfinnegan", name: "LinkedIn", color: "white", icon: <SiLinkedin size={SOCIAL_ICON_SIZE} /> },
+  {
+    href: "https://github.com/rofinn",
+    name: "GitHub",
+    color: "white",
+    icon: <SiGithub size={SOCIAL_ICON_SIZE} />,
+  },
+  {
+    href: "https://bsky.app/profile/rofinn.bsky.social",
+    name: "Bluesky",
+    color: "white",
+    icon: <SiBluesky size={SOCIAL_ICON_SIZE} />,
+  },
+  {
+    href: "https://linkedin.com/in/roryfinnegan",
+    name: "LinkedIn",
+    color: "white",
+    icon: <SiLinkedin size={SOCIAL_ICON_SIZE} />,
+  },
 ];
 
 function NavItem({
@@ -84,14 +125,24 @@ function DesktopNavigation({ className }: { className: string }) {
     >
       <ul className="flex-grow space-y-4">
         {navItems.map((item) => (
-          <NavItem key={item.href} href={item.href} name={item.name} color={item.color}>
+          <NavItem
+            key={item.href}
+            href={item.href}
+            name={item.name}
+            color={item.color}
+          >
             {item.icon}
           </NavItem>
         ))}
       </ul>
       <ul className="flex-none space-y-4 text-overlay2">
         {socialItems.map((item) => (
-          <NavItem key={item.href} href={item.href} name={item.name} color={item.color}>
+          <NavItem
+            key={item.href}
+            href={item.href}
+            name={item.name}
+            color={item.color}
+          >
             {item.icon}
           </NavItem>
         ))}
@@ -105,7 +156,12 @@ function MobileNavigation({ className }: { className: string }) {
     <nav className={`fixed z-50 bottom-0 h-16 w-full bg-crust ${className}`}>
       <ul className="flex flex-row items-center justify-center space-x-6">
         {navItems.map((item) => (
-          <NavItem key={item.href} href={item.href} name={item.name} color={item.color}>
+          <NavItem
+            key={item.href}
+            href={item.href}
+            name={item.name}
+            color={item.color}
+          >
             {item.mobileIcon || item.icon}
           </NavItem>
         ))}
