@@ -6,7 +6,7 @@ export function ResumeLayout({ children }: { children: React.ReactNode }) {
         <a
           href="/cv/document.pdf"
           download
-          className="mt-4 px-4 py-2 border border-blue text-blue rounded hover:brightness-125 hover:text-brightness-125"
+          className="mt-4 px-4 py-2 border border-blue text-blue rounded hover:brightness-125"
         >
           Download PDF
         </a>
