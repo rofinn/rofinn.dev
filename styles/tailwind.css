@@ -7,12 +7,11 @@
     @apply text-text;
   }
   p {
-    @apply text-subtext1;
+    @apply py-4 text-subtext1;
   }
   svg {
     @apply stroke-[0.1];
   }
-
   .home h2 {
     @apply text-lavender;
   }
@@ -59,6 +58,21 @@
   }
   .content svg {
     @apply stroke-peach;
+  }
+  article blockquote {
+    @apply ml-4 text-subtext0 italic;
+  }
+  article ol {
+    @apply pl-4 list-decimal list-inside;
+  }
+  article ul {
+    @apply pl-4 list-disc list-inside;
+  }
+  article li {
+    @apply text-sm text-subtext1;
+  }
+  article li:last-child {
+    @apply mb-4;
   }
 
   .tools h2 {
