@@ -1,4 +1,5 @@
 # Let’s talk about p\*\*\*\*\*\*
+
 I’ve been lucky to work as a software developer and researcher at various companies and labs. The work has varied regarding what is produced and what technologies are leveraged, but the usual friction points always arise.
 
 1. **Time estimates** - Are almost always wrong, so you’re better off under-promising and over-delivering.

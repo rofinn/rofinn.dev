@@ -146,7 +146,7 @@ export default async function Home() {
       <SimpleLayout
         title="Rory Finnegan"
         intro="Software spelunker, ex-researcher and outdoor enthusiast"
-        className="justify-center"
+        className="justify-center md:h-screen pb-20 md:pb-0"
       >
         <p className="my-12">
           I'm a software developer and neuroscientist who enjoys working on
