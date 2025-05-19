@@ -46,12 +46,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" href="/icon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-      </head>
+      <head />
       <body className="flex h-full m-auto p-2 pb-20 md:pb-2 gap-12 bg-crust text-text latte dark:frappe">
         <Providers>
           <div className="flex w-full">
