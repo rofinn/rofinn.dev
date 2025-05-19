@@ -6,11 +6,11 @@ import { Card } from "@/components/Card";
 import { SimpleLayout } from "@/components/SimpleLayout";
 import { Waves } from "@/components/Waves";
 
-import logoDenvr from "@/images/logos/denvr.webp";
-import logoInveniaLabs from "@/images/logos/invenia-labs.jpg";
-import logoInvenia from "@/images/logos/invenia-technical-computing.png";
-import logoUofM from "@/images/logos/university-of-manitoba.png";
-import logoNML from "@/images/logos/canada-nml.png";
+// import logoDenvr from "@/images/logos/denvr.webp";
+// import logoInveniaLabs from "@/images/logos/invenia-labs.jpg";
+// import logoInvenia from "@/images/logos/invenia-technical-computing.png";
+// import logoUofM from "@/images/logos/university-of-manitoba.png";
+// import logoNML from "@/images/logos/canada-nml.png";
 
 import { type ArticleWithSlug, getAllArticles } from "@/lib/content";
 import { formatDate } from "@/lib/formatDate";

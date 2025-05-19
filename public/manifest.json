@@ -1,0 +1,43 @@
+{
+  "name": "Rory Finnegan - Software Developer",
+  "short_name": "Rory Finnegan",
+  "description": "I'm a software spelunker, retired researcher and outdoor enthusiast with expertise in machine learning and software development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e293b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Blog",
+      "short_name": "Blog",
+      "description": "View my latest articles",
+      "url": "/content"
+    },
+    {
+      "name": "CV",
+      "short_name": "CV",
+      "description": "View my curriculum vitae",
+      "url": "/cv"
+    }
+  ],
+  "lang": "en-US"
+}
