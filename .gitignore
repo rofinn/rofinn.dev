@@ -46,5 +46,7 @@ next-env.d.ts
 **/.obsidian/core-plugins.json
 **/.obsidian/types.json
 
+CV/applications/
+
 .trash/
 .DS_Store

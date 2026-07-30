@@ -19,6 +19,9 @@
     @apply stroke-lavender;
   }
 
+  .resume svg {
+    @apply stroke-blue;
+  }
   .resume h1 {
     @apply text-3xl;
   }
@@ -80,5 +83,9 @@
   }
   .tools svg {
     @apply stroke-mauve;
+  }
+
+  .bookings svg {
+    @apply stroke-teal;
   }
 }

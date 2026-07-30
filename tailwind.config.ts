@@ -15,7 +15,7 @@ const config: Config = {
     // typographyPlugin,
     require("@catppuccin/tailwindcss")({
       prefix: false,
-      defaultFlavor: "Frappe",
+      defaultFlavour: "latte",
     }),
   ],
   theme: {

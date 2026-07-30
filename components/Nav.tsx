@@ -6,6 +6,7 @@ import Link from "next/link";
 // Icons we're want to use for our navbar
 import { SiBluesky, SiGithub, SiLinkedin } from "react-icons/si";
 import {
+  PiCalendarBlankBold,
   PiCode,
   PiGearFill,
   PiReadCvLogoFill,
@@ -13,6 +14,13 @@ import {
 } from "react-icons/pi";
 
 import { usePathname } from "next/navigation";
+
+// Dynamic so the nav, which renders on every page, does not pull Cal's bundle
+// into the shared chunk. Loading the module is the preload; preloadCal() then
+// warms the connection.
+function preloadCal() {
+  void import("@/components/CalBooking").then((m) => m.preloadCal());
+}
 
 const WAVE_SYMBOL = "\u223F";
 const NAV_ICON_SIZE = "24";
@@ -32,6 +40,12 @@ const navItems = [
     name: "CV",
     color: "blue",
     icon: <PiReadCvLogoFill size={NAV_ICON_SIZE} />,
+  },
+  {
+    href: "/bookings",
+    name: "Bookings",
+    color: "teal",
+    icon: <PiCalendarBlankBold size={NAV_ICON_SIZE} />,
   },
   {
     href: "/projects",
@@ -87,12 +101,14 @@ function NavItem({
   children: React.ReactNode;
 }) {
   let isActive = usePathname() === href;
+  let preload = href === "/bookings" ? preloadCal : undefined;
   const colorMap: { [key: string]: string } = {
     lavender: isActive ? "text-lavender" : "text-overlay2 hover:text-lavender",
     blue: isActive ? "text-blue" : "text-overlay2 hover:text-blue",
     green: isActive ? "text-green" : "text-overlay2 hover:text-green",
     peach: isActive ? "text-peach" : "text-overlay2 hover:text-peach",
     mauve: isActive ? "text-mauve" : "text-overlay2 hover:text-mauve",
+    teal: isActive ? "text-teal" : "text-overlay2 hover:text-teal",
     white: isActive ? "text-white" : "text-overlay2 hover:text-white",
   };
 
@@ -101,6 +117,9 @@ function NavItem({
       <Link
         href={href}
         aria-label={name}
+        onFocus={preload}
+        onPointerEnter={preload}
+        onTouchStart={preload}
         className={clsx(
           "flex group transition items-center justify-center my-2 mx-auto hover:brightness-125 hover:scale-125",
           colorMap[color],
