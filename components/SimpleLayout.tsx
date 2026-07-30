@@ -4,15 +4,18 @@ export function SimpleLayout({
   title,
   intro,
   className,
+  size,
   children,
 }: {
   title: string;
   intro: string;
   className: string;
+  size?: "default" | "wide";
   children?: React.ReactNode;
 }) {
   return (
     <Container
+      size={size}
       className={`flex flex-col ${
         className?.includes("justify-center") ? "h-screen" : ""
       } flex-grow items-center mt-8 mb-24 md:mb-8 m-auto ${className}`}
